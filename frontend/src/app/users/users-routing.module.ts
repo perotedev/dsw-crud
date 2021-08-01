@@ -1,18 +1,10 @@
-import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { UsersComponent } from './users.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    data: {
-      title: 'APP PAINEL'
-    }
-  },
-  {
-    path: 'users',
     component: UsersComponent,
     data: {
       title: 'USERS PAINEL'
@@ -24,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class UsersRoutingModule { }
