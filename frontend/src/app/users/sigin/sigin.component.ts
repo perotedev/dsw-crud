@@ -1,4 +1,6 @@
+import { UserInterface } from './../../interfaces/user.inteface';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-sigin',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UsersService) { }
 
   ngOnInit() {
+  }
+
+  cadastrar (user: UserInterface){
+    this.userService.createUser(user);
   }
 
 }

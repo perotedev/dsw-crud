@@ -14,7 +14,11 @@ import { UsersService } from './users.service';
     UsersRoutingModule,
     SiginModule,
     IndexModule,
-    UpdateModule
+    UpdateModule,
+  ],
+  exports: [
+    UsersComponent,
+    SiginModule
   ],
   providers:[UsersService]
 })
