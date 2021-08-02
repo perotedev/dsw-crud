@@ -9,13 +9,15 @@ import { UsersService } from '../users.service';
 })
 export class SiginComponent implements OnInit {
 
-  constructor(private userService: UsersService) { }
+  constructor(
+    // private userService: UsersService
+    ) { }
 
   ngOnInit() {
   }
 
   cadastrar (user: UserInterface){
-    this.userService.createUser(user);
+    // this.userService.createUser(user);
   }
 
 }
