@@ -10,7 +10,7 @@ import { UsersService } from './users.service';
 import { SearchComponent } from './search/search.component';
 
 @NgModule({
-  declarations: [UsersComponent, SearchComponent],
+  declarations: [UsersComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
