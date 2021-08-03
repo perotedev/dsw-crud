@@ -5,20 +5,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { SiginModule } from './sigin/sigin.module';
+import { SearchModule } from './search/search.module'
 import { UsersService } from './users.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
-  declarations: [UsersComponent],
+  declarations: [UsersComponent, SearchComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
     SiginModule,
+    SearchModule,
     IndexModule,
     UpdateModule,
   ],
   exports: [
     UsersComponent,
-    SiginModule
+    SiginModule,
+    SearchModule
   ],
   providers:[UsersService]
 })

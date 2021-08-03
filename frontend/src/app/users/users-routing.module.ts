@@ -1,5 +1,6 @@
 import { IndexComponent } from './index/index.component';
 import { SiginComponent } from './sigin/sigin.component';
+import { SearchComponent } from './search/search.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users.component';
@@ -17,6 +18,13 @@ const routes: Routes = [
     component: SiginComponent,
     data: {
       title: 'SIGN PAINEL'
+    }
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    data: {
+      title: 'SEARCH PAINEL'
     }
   },
   {
