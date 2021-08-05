@@ -7,7 +7,6 @@ import { UsersRoutingModule } from './users-routing.module';
 import { SiginModule } from './sigin/sigin.module';
 import { SearchModule } from './search/search.module'
 import { UsersService } from './users.service';
-import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [UsersComponent],
