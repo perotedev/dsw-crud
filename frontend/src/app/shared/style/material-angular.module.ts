@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgModule } from '@angular/core';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule
   ],
   exports: [
     MatTabsModule,
@@ -24,7 +26,8 @@ import { NgModule } from '@angular/core';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialAngular { }

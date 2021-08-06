@@ -7,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
+
+  progressBar = true;
+  counter = 604800;
+  hour: any;
 
   ngOnInit() {
+    this.interval();
   }
 
-  title = 'frontend';
+  private interval(){
+    this.hour = this.convertHour(new Date().toString());
+    const interval = setInterval(() => {
+      this.hour = this.convertHour(new Date().toString());
+
+    }, 1000);
+  }
+
+  private convertHour(hour:string){
+    let time = hour.split(' ')[4];
+    return time;
+  }
 }

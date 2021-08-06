@@ -1,3 +1,4 @@
+import { MaterialAngular } from './../shared/style/material-angular.module';
 import { UpdateModule } from './update/update.module';
 import { IndexModule } from './index/index.module';
 import { UsersComponent } from './users.component';
@@ -17,6 +18,7 @@ import { UsersService } from './users.service';
     SearchModule,
     IndexModule,
     UpdateModule,
+    MaterialAngular
   ],
   exports: [
     UsersComponent,

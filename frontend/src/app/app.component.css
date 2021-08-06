@@ -1,5 +1,48 @@
+.mat-toolbar {
+  background-color: #00914E;
+  height: max-content;
+  padding: 0.7rem;
+  justify-content: center;
+}
+
+#title-toolbar{
+  margin-left: 1rem;
+}
+
+.toolbar-menu {
+  background-color: #00914E;
+}
+
+.toolbar-title{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#background-logo {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.logo-left {
+  width: 1.5rem;
+  margin: 0.5rem;
+  height: auto;
+  padding-right: 0.21rem;
+  padding-left: 0.21em;
+  margin-bottom: 0%;
+}
+
+.white-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+}
+
 .mat-tab-group {
-  color: #00A85A;
+  color: #00914E;
   margin-bottom: 48px;
 }
 
@@ -7,11 +50,37 @@
   flex: 1 1 auto;
 }
 
-.mat-toolbar {
+/* Altera o underline do mat-tab */
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+  background: #00914E !important;
+}
+
+#date {
+  margin-left: 1rem;
+}
+
+#footer {
+  font-size: medium;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+/* Muda as cores da progress-bar */
+
+::ng-deep .mat-progress-bar-fill::after {
   background-color: #00A85A;
 }
 
-/* Altera o underline do mat-tab */
-::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
-  background: #00A85A !important;
+::ng-deep .mat-progress-bar-buffer {
+  background: #D7F5E3;
 }
+
+/*
+Mudaria o tamanho da borda
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
+} */
