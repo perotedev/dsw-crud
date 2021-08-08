@@ -1,3 +1,4 @@
+import { TurmasModule } from './turmas/turmas.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +16,8 @@ import { MaterialAngular } from './shared/style/material-angular.module';
     AppRoutingModule,
     UsersModule,
     BrowserAnimationsModule,
-    MaterialAngular
+    MaterialAngular,
+    TurmasModule
   ],
   providers: [],
   bootstrap: [AppComponent]
