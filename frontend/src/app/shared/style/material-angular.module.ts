@@ -1,3 +1,4 @@
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -17,7 +21,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatTableModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatSortModule,
+
   ],
   exports: [
     MatTabsModule,
@@ -27,7 +36,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatTableModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatSortModule,
   ]
 })
 export class MaterialAngular { }

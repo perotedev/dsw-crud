@@ -1,3 +1,4 @@
+import { MaterialAngular } from './../shared/style/material-angular.module';
 import { ListarModule } from './listar/listar.module';
 import { CadastrarModule } from './cadastrar/cadastrar.module';
 import { TurmasRoutingModule } from './turmas.routing.module';
@@ -10,7 +11,8 @@ import { TurmasComponent } from './turmas.component';
     CommonModule,
     TurmasRoutingModule,
     CadastrarModule,
-    ListarModule
+    ListarModule,
+    MaterialAngular
   ],
   declarations: [TurmasComponent],
   exports:[

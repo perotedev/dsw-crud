@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAngular } from './shared/style/material-angular.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MaterialAngular } from './shared/style/material-angular.module';
     UsersModule,
     BrowserAnimationsModule,
     MaterialAngular,
-    TurmasModule
+    TurmasModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
