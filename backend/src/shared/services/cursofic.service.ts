@@ -9,7 +9,7 @@ export class CursoFicService {
     
     async listarCursos()
     {
-        return await this.cursoFicModel.find().exec();
+        return await this.cursoFicModel.find().populate(['turmas']).exec();
     }
 
     async listarCursoPorId(_id:string)
