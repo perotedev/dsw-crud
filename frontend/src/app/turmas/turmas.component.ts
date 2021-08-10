@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./turmas.component.css']
 })
 export class TurmasComponent implements OnInit {
-
+  turmas = document.getElementById('turmas');
   hiddenList = false;
   hiddenCreate = true;
 
@@ -15,7 +15,7 @@ export class TurmasComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
   goToList(){

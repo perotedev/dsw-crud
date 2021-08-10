@@ -12,7 +12,7 @@
   <mat-progress-bar id="progress-bar" mode="indeterminate"></mat-progress-bar>
 </div>
 
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="goTo($event)">
   <mat-tab label="Alunos"> Gabriel Costa </mat-tab>
   <mat-tab label="Professores"> Thalles Kaik </mat-tab>
   <mat-tab label="Cursos FIC"> Bernardo Amazonas </mat-tab>
