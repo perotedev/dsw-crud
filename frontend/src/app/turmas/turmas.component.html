@@ -11,8 +11,9 @@
       </div>
 
       <div class="col-12 col-md-10">
-        <app-listar [hidden]="hiddenList"></app-listar>
-        <app-cadastrar [hidden]="hiddenCreate"></app-cadastrar>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </section>
   </div>

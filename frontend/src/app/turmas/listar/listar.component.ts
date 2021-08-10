@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
@@ -21,7 +22,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-listar',
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
@@ -33,14 +33,15 @@ export class ListarComponent implements OnInit {
   hiddenList = false;
   hiddenCreate = true;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   goToCreate(){
-    this.hiddenList = true;
-    this.hiddenCreate = false;
+    this.router.navigate(['cadastrar-turmas']);
   }
 
 }
