@@ -7,12 +7,12 @@ import { CursoFic } from '../schemas/cursoFic.schema';
 export class CursoFicService {
     constructor(@InjectModel(CursoFic.name) private readonly cursoFicModel: Model<CursoFic>){}
     
-    async listarTurmas()
+    async listarCursos()
     {
         return await this.cursoFicModel.find().exec();
     }
 
-    async listarTurmaPorId(_id:string)
+    async listarCursoPorId(_id:string)
     {
         return await this.cursoFicModel.findById(_id).exec();
     }
@@ -26,7 +26,7 @@ export class CursoFicService {
     async atualizarCurso(_id:string, curso:CursoFic)
     {
         await this.cursoFicModel.updateOne({_id:_id}, curso).exec();
-        return this.listarTurmaPorId(_id);
+        return this.listarCursoPorId(_id);
     }
 
     async deletarCurso(_id:string)
