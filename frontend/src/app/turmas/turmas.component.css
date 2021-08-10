@@ -1,7 +1,6 @@
 .left-nav {
-  background-color: #00A85A;
-  width: 80%;
-  height: 100vh;
+  background-color: #00914E;
+  height: 100%;
   margin-bottom: 0%;
   padding-bottom: 0;
 }
@@ -10,7 +9,6 @@
   color: white;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
+.container {
+  height: 100%;
 }

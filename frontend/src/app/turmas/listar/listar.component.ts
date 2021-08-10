@@ -27,12 +27,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListarComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['id', 'name', 'startDate', 'endDate', 'actions'];
   dataSource = ELEMENT_DATA;
+
+  hiddenList = false;
+  hiddenCreate = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  goToCreate(){
+    this.hiddenList = true;
+    this.hiddenCreate = false;
   }
 
 }

@@ -1,5 +1,5 @@
 .mat-toolbar {
-  background-color: #00914E;
+  background-color: green;
   height: max-content;
   padding: 0.7rem;
   justify-content: center;
@@ -46,7 +46,6 @@
 
 .mat-tab-group {
   color: #00914E;
-  margin-bottom: 48px;
 }
 
 .example-spacer {
@@ -55,21 +54,11 @@
 
 /* Altera o underline do mat-tab */
 ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
-  background: red !important;
+  background: darkgreen !important;
 }
 
 #date {
   margin-left: 1rem;
-}
-
-#footer {
-  font-size: medium;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  color: white;
 }
 
 /* Muda as cores da progress-bar */
