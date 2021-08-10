@@ -1,3 +1,4 @@
+import { VerTurmaModule } from './ver-turma/ver-turma.module';
 import { MaterialAngular } from './../shared/style/material-angular.module';
 import { ListarModule } from './listar/listar.module';
 import { CadastrarModule } from './cadastrar/cadastrar.module';
@@ -12,6 +13,7 @@ import { TurmasComponent } from './turmas.component';
     TurmasRoutingModule,
     CadastrarModule,
     ListarModule,
+    VerTurmaModule,
     MaterialAngular
   ],
   declarations: [TurmasComponent],
