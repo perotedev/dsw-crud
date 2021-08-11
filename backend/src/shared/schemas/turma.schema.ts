@@ -19,6 +19,9 @@ export class Turma extends Document{
 
     @Prop({ type: SchemaTypes.ObjectId, ref: 'Professor', required: true })
     professorId: Types.ObjectId;
+
+    @Prop({ type: SchemaTypes.ObjectId, ref: 'Professor', required: true })
+    alunos: Array<Types.ObjectId>;
 }
 
 export const TurmaSchema = SchemaFactory.createForClass(Turma);
@@ -33,10 +36,4 @@ TurmaSchema.virtual('professor', {
     ref: 'Professor',
     localField: 'professorId',
     foreignField: '_id'
-})
-
-TurmaSchema.virtual('alunos', {
-    ref: 'Aluno',
-    localField: '_id',
-    foreignField: 'turmaId'
 })
