@@ -1,6 +1,6 @@
-import { UserInterface } from './../../interfaces/user.inteface';
+import { UserInterface } from '../../shared/interfaces/user.inteface';
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'app-sigin',

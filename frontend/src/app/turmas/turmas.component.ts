@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-turmas',
@@ -6,23 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./turmas.component.css']
 })
 export class TurmasComponent implements OnInit {
-
+  turmas = document.getElementById('turmas');
   hiddenList = false;
   hiddenCreate = true;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
   goToList(){
-    this.hiddenList = false;
-    this.hiddenCreate = true;
+    this.router.navigate(['listar-turmas']);
   }
 
   goToCreate(){
-    this.hiddenList = true;
-    this.hiddenCreate = false;
+    this.router.navigate(['cadastrar-turmas']);
   }
 
 }
