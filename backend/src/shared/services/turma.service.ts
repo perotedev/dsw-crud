@@ -7,14 +7,16 @@ import { Model } from 'mongoose';
 export class TurmaService {
     constructor(@InjectModel(Turma.name) private readonly turmaModel: Model<Turma>){}
 
-    async listarTodas()
+    async listarTodas(expand:string)
     {
-        return await this.turmaModel.find().exec();
+        let virtuals = expand.split(",");
+        return await this.turmaModel.find().populate(virtuals).exec();
     }
 
-    async listarPorId(_id:string)
+    async listarPorId(_id:string,expand:string)
     {
-        return this.turmaModel.findById(_id).exec();
+        let virtuals = expand.split(",");
+        return this.turmaModel.findById(_id).populate(virtuals).exec();
     }
 
     async criarTurma(turma:Turma)
@@ -23,14 +25,18 @@ export class TurmaService {
         return await turmaCriada.save();
     }
 
-    async atualizarTurma(_id:string, turma:Turma)
+    async atualizarTurma(_id:string, turma:Turma, expand:string)
     {
         await this.turmaModel.updateOne({_id:_id}, turma).exec();
-        return this.listarPorId(_id);
+        return this.listarPorId(_id, expand);
     }
 
     async deletarTurma(_id:string)
     {
         return await this.turmaModel.deleteOne({_id:_id}).exec();
+    }
+
+    async listarTurmasNaArray(turmasId:string[]){
+        return await this.turmaModel.find({_id: {$in:turmasId}}).exec();
     }
 }

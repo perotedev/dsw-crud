@@ -5,6 +5,9 @@ import { Document, SchemaTypes, Types } from "mongoose";
 export class Turma extends Document{
     _id: string;
 
+    @Prop( {required: true})
+    ID: number;
+
     @Prop({required: true})
     nome: string;
 
@@ -20,8 +23,8 @@ export class Turma extends Document{
     @Prop({ type: SchemaTypes.ObjectId, ref: 'Professor', required: true })
     professorId: Types.ObjectId;
 
-    @Prop({ type: SchemaTypes.ObjectId, ref: 'Professor', required: true })
-    alunos: Array<Types.ObjectId>;
+    @Prop({ type: [ SchemaTypes.ObjectId ], ref: 'Aluno', required: true })
+    alunosId:Types.ObjectId[];
 }
 
 export const TurmaSchema = SchemaFactory.createForClass(Turma);
@@ -35,5 +38,11 @@ TurmaSchema.virtual('curso', {
 TurmaSchema.virtual('professor', {
     ref: 'Professor',
     localField: 'professorId',
+    foreignField: '_id'
+})
+
+TurmaSchema.virtual('alunos', {
+    ref: 'Aluno',
+    localField: 'alunosId',
     foreignField: '_id'
 })
