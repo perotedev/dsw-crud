@@ -1,5 +1,5 @@
 import { TurmaService } from './../shared/services/turma.service';
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query } from '@nestjs/common';
 import { Turma } from 'src/shared/schemas/turma.schema';
 
 @Controller('turma')
@@ -19,6 +19,7 @@ export class TurmaController {
     }
 
     @Post('listar-nome-id')
+    @HttpCode(200)
     async listarPorNomeID(@Body('termo') termo:any, @Query('expand') expand:string): Promise<Turma[]>
     {
         return this.turmaService.listarPorNomeID(termo, expand);
