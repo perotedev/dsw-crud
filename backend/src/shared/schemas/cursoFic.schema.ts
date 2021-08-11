@@ -9,7 +9,7 @@ export class CursoFic extends Document{
     nome: string;
 
     @Prop({ type: SchemaTypes.ObjectId, ref: 'Turma', required: true})
-    turmaId: Types.ObjectId; 
+    turmaId: Types.ObjectId;
 }
 
 export const CursoFicSchema = SchemaFactory.createForClass(CursoFic);
@@ -17,5 +17,5 @@ export const CursoFicSchema = SchemaFactory.createForClass(CursoFic);
 CursoFicSchema.virtual('turma', {
     ref:'Turma',
     localField: 'turmaId',
-    foreingField: '_id'
+    foreignField: '_id'
 })

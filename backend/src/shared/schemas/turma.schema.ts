@@ -5,7 +5,7 @@ import { Document, SchemaTypes, Types } from "mongoose";
 export class Turma extends Document{
     _id: string;
 
-    @Prop( {required: true})
+    @Prop()
     ID: number;
 
     @Prop({required: true})
