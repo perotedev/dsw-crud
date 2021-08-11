@@ -18,6 +18,12 @@ export class TurmaController {
         return this.turmaService.listarPorId(_id, expand);
     }
 
+    @Post('listar-nome-id')
+    async listarPorNomeID(@Body('termo') termo:any, @Query('expand') expand:string): Promise<Turma[]>
+    {
+        return this.turmaService.listarPorNomeID(termo, expand);
+    }
+
     @Post()
     async criarTurma(@Body() turma:Turma): Promise<Turma>
     {
@@ -37,7 +43,8 @@ export class TurmaController {
     }
 
     @Post('listar-array')
-    async listarlistarTurmasNaArray(@Body('turmasId') post:string[]){
+    async listarlistarTurmasNaArray(@Body('turmasId') post:string[]): Promise<Turma[]>
+    {
         return this.turmaService.listarTurmasNaArray(post);
     }
 }
