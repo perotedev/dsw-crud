@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cursos-fic',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cursos-fic.component.css']
 })
 export class CursosFicComponent implements OnInit {
+  cursos_fic = document.getElementById('cursos-fic');
+  hiddenList = false;
+  hiddenCreate = true;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  goToList(){
+    this.router.navigate(['listar-cursos']);
+  }
+
+  goToCreate(){
+    this.router.navigate(['cadastrar-cursos']);
+  }
 }
