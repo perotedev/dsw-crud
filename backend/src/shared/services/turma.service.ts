@@ -15,7 +15,7 @@ export class TurmaService {
         } else {
             virtuals = expand.split(",");
         }
-        return await this.turmaModel.find().populate(virtuals).exec();
+        return await this.turmaModel.find().populate(virtuals).sort({nome: 1}).exec();
     }
 
     async listarPorId(_id:string,expand:string)
@@ -39,9 +39,9 @@ export class TurmaService {
             virtuals = expand.split(",");
         }
         if (onlyNumbers){
-            return this.turmaModel.find({ID: termo}).populate(virtuals).limit(10).exec();
+            return this.turmaModel.find({ID: termo}).populate(virtuals).sort({nome: 1}).limit(10).exec();
         } else {
-            return this.turmaModel.find({nome: {$regex: termo, $options: "i"}}).populate(virtuals).limit(10).exec();
+            return this.turmaModel.find({nome: {$regex: termo, $options: "i"}}).populate(virtuals).sort({nome: 1}).limit(10).exec();
         }
     }
 
@@ -71,6 +71,6 @@ export class TurmaService {
     }
 
     async listarTurmasNaArray(turmasId:string[]){
-        return await this.turmaModel.find({_id: {$in:turmasId}}).exec();
+        return await this.turmaModel.find({_id: {$in:turmasId}}).sort({nome: 1}).exec();
     }
 }
