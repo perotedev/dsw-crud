@@ -2,6 +2,7 @@ import { Turma } from '../schemas/turma.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { kMaxLength } from 'buffer';
 
 @Injectable()
 export class TurmaService {
@@ -21,7 +22,15 @@ export class TurmaService {
 
     async criarTurma(turma:Turma)
     {
+        let id: number;
+        let qtdTurmas = await this.turmaModel.find().sort({ID: -1}).limit(1).exec();
         const turmaCriada = new this.turmaModel(turma);
+        if(qtdTurmas.length>0){
+            id = qtdTurmas[0].ID;
+            turmaCriada.ID = id+1;
+        } else {
+            turmaCriada.ID = 1;
+        }
         return await turmaCriada.save();
     }
 

@@ -1,3 +1,4 @@
+import { TurmaSchema } from './../shared/schemas/turma.schema';
 import { CursoFicController } from './../controllers/cursofic.controller';
 import { MongooseModule } from "@nestjs/mongoose";
 import { Module } from '@nestjs/common';
@@ -9,6 +10,10 @@ import { CursoFicService } from "src/shared/services/cursofic.service";
         MongooseModule.forFeature([{
             name: 'CursoFic',
             schema: CursoFicSchema
+        }]),
+        MongooseModule.forFeature([{
+            name: 'Turma',
+            schema: TurmaSchema
         }])
     ],
     controllers: [
