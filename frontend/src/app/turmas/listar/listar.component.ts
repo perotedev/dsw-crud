@@ -27,7 +27,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListarComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'startDate', 'endDate', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
   dataSource = ELEMENT_DATA;
 
   hiddenList = false;

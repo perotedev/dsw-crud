@@ -1,3 +1,4 @@
+import { TurmaService } from './../shared/services/turma.service';
 import { VerTurmaModule } from './ver-turma/ver-turma.module';
 import { MaterialAngular } from './../shared/style/material-angular.module';
 import { ListarModule } from './listar/listar.module';
@@ -17,6 +18,7 @@ import { TurmasComponent } from './turmas.component';
     MaterialAngular
   ],
   declarations: [TurmasComponent],
+  providers:[TurmaService],
   exports:[
     TurmasComponent
   ]
