@@ -41,7 +41,7 @@ export class ListarComponent implements OnInit {
   }
 
   goToCreate(){
-    this.router.navigate(['cadastrar-turmas']);
+    this.router.navigate([{outlets: {turma: 'cadastrar-turmas'}}]);
   }
 
 }
