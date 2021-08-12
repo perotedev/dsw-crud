@@ -2,6 +2,8 @@ import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { ListarComponent } from './turmas/listar/listar.component';
+import { CadastrarComponent } from './turmas/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {

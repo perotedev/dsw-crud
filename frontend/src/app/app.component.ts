@@ -44,9 +44,29 @@ export class AppComponent implements OnInit {
     } else if ($event.index==1){
       console.log($event); // por a rota de listar Professores aqui
     } else if ($event.index==2){
-      this.router.navigate(['listar-cursos']);
+      this.router.navigate([{outlets: this.navigateOutlets($event.index)}]);
     } else if ($event.index==3){
-      this.router.navigate(['listar-turmas']);
+      this.router.navigate([{outlets: this.navigateOutlets($event.index)}]);
+    }
+  }
+
+  navigateOutlets(index:number){
+    switch(index){
+      case 0: {
+        return {aluno: '', turma: null, curso: null, professor: null};
+      }
+      case 1: {
+        return {professor: '', turma: null, curso: null, aluno: null};
+      }
+      case 2: {
+        return {curso: 'listar-cursos', turma: null, aluno: null, professor: null};
+      }
+      case 3: {
+        return {turma: 'listar-turmas', aluno: null, curso: null, professor: null};
+      }
+      default:{
+        return {}
+      }
     }
   }
 }
