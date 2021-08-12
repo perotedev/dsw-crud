@@ -7,15 +7,15 @@ export class CursoFicController {
     constructor(private cursoFicService: CursoFicService){}
 
     @Get()
-    async listarTurmas(): Promise<CursoFic[]>
+    async listarCursos(): Promise<CursoFic[]>
     {
-        return this.cursoFicService.listarTurmas();
+        return this.cursoFicService.listarCursos();
     }
 
     @Get(':_id')
-    async listarTurmaPorId(@Param('_id' ) _id:string): Promise<CursoFic>
+    async listarCursoPorId(@Param('_id' ) _id:string): Promise<CursoFic>
     {
-        return this.cursoFicService.listarTurmaPorId(_id);
+        return this.cursoFicService.listarCursoPorId(_id);
     }
 
     @Post()
