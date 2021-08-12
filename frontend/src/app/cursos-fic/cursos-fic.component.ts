@@ -19,10 +19,10 @@ export class CursosFicComponent implements OnInit {
   }
 
   goToList(){
-    this.router.navigate(['listar-cursos']);
+    this.router.navigate([{outlets: {curso: 'listar-cursos'}}]);
   }
 
   goToCreate(){
-    this.router.navigate(['cadastrar-cursos']);
+    this.router.navigate([{outlets: {curso: 'cadastrar-cursos'}}]);
   }
 }

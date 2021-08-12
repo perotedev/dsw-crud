@@ -17,14 +17,16 @@ const routes: Routes = [
         component: ListarComponent,
         data: {
             title: 'LISTAR PAINEL'
-        }
+        },
+        outlet: "curso"
     },
     {
         path: 'cadastrar-cursos',
         component: CadastrarComponent,
         data: {
             title: 'CADASTRAR PAINEL'
-        }
+        },
+        outlet: "curso"
     }
 ];
 
