@@ -1,3 +1,4 @@
+import { CursoFicModule } from './modules/cursoFic.module';
 import { TurmaModule } from './modules/turma.module';
 import { UsuarioModule } from './modules/usuario.module';
 import { Module } from '@nestjs/common';
@@ -8,6 +9,7 @@ import { CursoFicModule } from './modules/cursoFic.module';
 
 @Module({
   imports: [
+    CursoFicModule,
     TurmaModule,
     CursoFicModule,
     UsuarioModule,
