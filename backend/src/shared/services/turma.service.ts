@@ -9,14 +9,40 @@ export class TurmaService {
 
     async listarTodas(expand:string)
     {
-        let virtuals = expand.split(",");
-        return await this.turmaModel.find().populate(virtuals).exec();
+        let virtuals;
+        if (expand == undefined){
+            virtuals = [];
+        } else {
+            virtuals = expand.split(",");
+        }
+        return await this.turmaModel.find().populate(virtuals).sort({nome: 1}).exec();
     }
 
     async listarPorId(_id:string,expand:string)
     {
-        let virtuals = expand.split(",");
+        let virtuals;
+        if (expand == undefined){
+            virtuals = [];
+        } else {
+            virtuals = expand.split(",");
+        }
         return this.turmaModel.findById(_id).populate(virtuals).exec();
+    }
+
+    async listarPorNomeID(termo:any,expand:string)
+    {
+        const onlyNumbers = /^\d+$/.test(termo);
+        let virtuals;
+        if (expand == undefined){
+            virtuals = [];
+        } else {
+            virtuals = expand.split(",");
+        }
+        if (onlyNumbers){
+            return this.turmaModel.find({ID: termo}).populate(virtuals).sort({nome: 1}).limit(10).exec();
+        } else {
+            return this.turmaModel.find({nome: {$regex: termo, $options: "i"}}).populate(virtuals).sort({nome: 1}).limit(10).exec();
+        }
     }
 
     async criarTurma(turma:Turma)
@@ -45,6 +71,6 @@ export class TurmaService {
     }
 
     async listarTurmasNaArray(turmasId:string[]){
-        return await this.turmaModel.find({_id: {$in:turmasId}}).exec();
+        return await this.turmaModel.find({_id: {$in:turmasId}}).sort({nome: 1}).exec();
     }
 }

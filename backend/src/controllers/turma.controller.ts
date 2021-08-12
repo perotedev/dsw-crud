@@ -1,5 +1,5 @@
 import { TurmaService } from './../shared/services/turma.service';
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query } from '@nestjs/common';
 import { Turma } from 'src/shared/schemas/turma.schema';
 
 @Controller('turma')
@@ -16,6 +16,13 @@ export class TurmaController {
     async listarPorId(@Param('_id') _id:string, @Query('expand') expand:string): Promise<Turma>
     {
         return this.turmaService.listarPorId(_id, expand);
+    }
+
+    @Post('listar-nome-id')
+    @HttpCode(200)
+    async listarPorNomeID(@Body('termo') termo:any, @Query('expand') expand:string): Promise<Turma[]>
+    {
+        return this.turmaService.listarPorNomeID(termo, expand);
     }
 
     @Post()
@@ -37,7 +44,8 @@ export class TurmaController {
     }
 
     @Post('listar-array')
-    async listarlistarTurmasNaArray(@Body('turmasId') post:string[]){
+    async listarlistarTurmasNaArray(@Body('turmasId') post:string[]): Promise<Turma[]>
+    {
         return this.turmaService.listarTurmasNaArray(post);
     }
 }
