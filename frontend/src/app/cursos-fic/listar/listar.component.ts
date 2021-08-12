@@ -29,10 +29,10 @@ export class ListarComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  gotToCreate(){
+  goToCreate(){
     this.router.navigate(['cadastrar-cursos']);
   }
 }

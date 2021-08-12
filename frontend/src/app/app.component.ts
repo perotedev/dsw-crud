@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     } else if ($event.index==1){
       console.log($event); // por a rota de listar Professores aqui
     } else if ($event.index==2){
-      console.log($event);  // por a rota de listar Cursos FIC aqui
+      this.router.navigate(['listar-cursos']);
     } else if ($event.index==3){
       this.router.navigate(['listar-turmas']);
     }

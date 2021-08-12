@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAngular } from './shared/style/material-angular.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CursosFicModule } from './cursos-fic/cursos-fic.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MaterialAngular,
     TurmasModule,
+    CursosFicModule,
     NgbModule
   ],
   providers: [],
