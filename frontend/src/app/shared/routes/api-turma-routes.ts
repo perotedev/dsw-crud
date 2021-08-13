@@ -1,9 +1,9 @@
-export class ApiTurmaRoutes {
-  static turmas = "turma";
-  static delete = "turma/";
-  static listarTurmaPorId = 'turma/'
-  static listarTurmaPorNomeID = "turma/listar-nome-id"
-  static expands = {
+export const ApiTurmaRoutes = {
+  turmas: "turma",
+  delete: "turma/",
+  listarTurmaPorId: "turma/",
+  listarTurmaPorNomeID: "turma/listar-nome-id",
+  expands: {
     alunos: "alunos",
     professor: "professor",
     curso: "curso"

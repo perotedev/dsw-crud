@@ -1,3 +1,4 @@
+import { FooterModule } from './shared/style/footer/footer.module';
 import { TurmasModule } from './turmas/turmas.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +22,7 @@ import { CursosFicModule } from './cursos-fic/cursos-fic.module';
     MaterialAngular,
     TurmasModule,
     CursosFicModule,
+    FooterModule,
     NgbModule
   ],
   providers: [],

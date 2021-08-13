@@ -1,10 +1,10 @@
-import { EnvironmentVariables } from '../environment-variables';
+import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TurmaInterface } from '../interfaces/turma.interface';
 import { ApiTurmaRoutes } from '../routes/api-turma-routes';
 
-const API_URL_BASE = EnvironmentVariables.urlBase;
+const API_URL_BASE = environment.urlBase;
 const TURMA = ApiTurmaRoutes;
 
 @Injectable({

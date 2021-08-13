@@ -1,20 +1,14 @@
-<section class="row w-100 h-100">
-    <div class="col-12">
-      <section class="row w-100">
-        <div class="col-12 col-md-2">
-          <div class="left-nav">
-            <mat-action-list>
-              <button mat-list-item (click)="goToList()"> Listar Cursos </button>
-              <button mat-list-item (click)="goToCreate()"> Cadastrar Curso </button>
-            </mat-action-list>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-10">
-          <div>
-            <router-outlet name="curso"></router-outlet>
-          </div>
-        </div>
-      </section>
+<section id="content">
+  <div id="buttons" class="row">
+    <div class="col-12 col-md-6 button-padding">
+      <button mat-button (click)="goToList()" class="button w-100 mat-elevation-z2"> Listar Cursos </button>
     </div>
-  </section>
+
+    <div class="col-12 col-md-6 button-padding">
+      <button mat-button (click)="goToCreate()" class="button w-100 mat-elevation-z2"> Cadastrar Curso </button>
+    </div>
+  </div>
+
+  <router-outlet name="curso"></router-outlet>
+
+ </section>
