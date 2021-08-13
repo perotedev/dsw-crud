@@ -33,30 +33,16 @@ export class AppComponent implements OnInit {
   }
 
   goTo($event:any){
-    // pessoal, aqui a as referências são assim:
-    // 0 -> alunos
-    // 1 -> Professores
-    // 2 -> Cursos FIC
-    // 3 -> Turmas
-
-    if ($event.index==0){
-      console.log($event); // por a rota de listar Alunos aqui
-    } else if ($event.index==1){
-      console.log($event); // por a rota de listar Professores aqui
-    } else if ($event.index==2){
-      this.router.navigate([{outlets: this.navigateOutlets($event.index)}]);
-    } else if ($event.index==3){
-      this.router.navigate([{outlets: this.navigateOutlets($event.index)}]);
-    }
+    this.router.navigate([{outlets: this.navigateOutlets($event.index)}]);
   }
 
   navigateOutlets(index:number){
     switch(index){
       case 0: {
-        return {aluno: '', turma: null, curso: null, professor: null};
+        return {aluno: '', turma: null, curso: null, professor: null}; // por a rota de listar Alunos aqui
       }
       case 1: {
-        return {professor: '', turma: null, curso: null, aluno: null};
+        return {professor: '', turma: null, curso: null, aluno: null}; // por a rota de listar Professores aqui
       }
       case 2: {
         return {curso: 'listar-cursos', turma: null, aluno: null, professor: null};
