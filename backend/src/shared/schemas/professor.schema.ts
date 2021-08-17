@@ -5,7 +5,7 @@ import { Document, SchemaTypes, Types } from "mongoose";
 export class Professor extends Document{
     _id: string;
 
-    @Prop({required: true})
+    @Prop({required: true, maxlength:50})
     nome: string;
 }
 
