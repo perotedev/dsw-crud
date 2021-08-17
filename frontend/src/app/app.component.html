@@ -15,13 +15,9 @@
 <mat-tab-group (selectedTabChange)="goTo($event)">
   <mat-tab label="Alunos"> Gabriel Costa </mat-tab>
   <mat-tab label="Professores"> Thalles Kaik </mat-tab>
-  <mat-tab label="Cursos FIC"> Bernardo Amazonas </mat-tab>
+  <mat-tab label="Cursos FIC"> <app-cursos-fic></app-cursos-fic> </mat-tab>
   <mat-tab label="Turmas"> <app-turmas></app-turmas> </mat-tab>
 </mat-tab-group>
 
-<!--
-<mat-toolbar id="footer">
-  <div>
-    <span>SisFIC - Sistema de Gerenciamento FIC 2021</span>
-  </div>
-</mat-toolbar> -->
+<!-- <router-outlet></router-outlet> -->
+<app-footer></app-footer>
