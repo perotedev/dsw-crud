@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { FooterModule } from './shared/style/footer/footer.module';
 import { TurmasModule } from './turmas/turmas.module';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { CursosFicModule } from './cursos-fic/cursos-fic.module';
     AppComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     UsersModule,

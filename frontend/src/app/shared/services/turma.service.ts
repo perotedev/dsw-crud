@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TurmaInterface } from '../interfaces/turma.interface';
 import { ApiTurmaRoutes } from '../routes/api-turma-routes';
@@ -11,13 +11,16 @@ const TURMA = ApiTurmaRoutes;
   providedIn: 'root'
 })
 export class TurmaService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   constructor(
     private http:HttpClient
-  ) { }
+  ) {}
 
-  listarTurmas(){
-    return this.http.get(API_URL_BASE+TURMA.turmas+"?expand="+TURMA.expands.curso);
+  listarTurmas() {
+    return this.http.get(API_URL_BASE+TURMA.turmas+"?expand="+TURMA.expands.curso, this.httpOptions);
   }
 
   listarTurmaPorNomeID(termo:string) {
