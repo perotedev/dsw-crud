@@ -1,3 +1,4 @@
+import { ProfessorModule } from './modules/professor.module';
 import { CursoFicModule } from './modules/cursoFic.module';
 import { TurmaModule } from './modules/turma.module';
 import { UsuarioModule } from './modules/usuario.module';
@@ -8,6 +9,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
+    branch-prof
     CursoFicModule,
     TurmaModule,
     CursoFicModule,
