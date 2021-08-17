@@ -11,8 +11,8 @@ export class ProfessorController {
     async listarTodos(): Promise<Professor[]>{
         return this.professorService.listarTodos();
     }
-    @Get()
-    async listarPorId(@Param('_id')_id:string): Promise<Professor>{
+    @Get(':_id')
+    async listarPorId(@Param('_id') _id:string): Promise<Professor>{
         return this.professorService.listarPorId(_id);
     }
     @Post()
@@ -20,12 +20,12 @@ export class ProfessorController {
         return this.professorService.criarProfessor(professor);
     }
     @Put()
-    async atualizarProfessor(@Body('_id') _id:string, @Body()professor:Professor): Promise<Professor>{
+    async atualizarProfessor(@Body('_id') _id:string, @Body() professor:Professor): Promise<Professor>{
         return this.professorService.atualizarProfessor(_id, professor);
     }
     @Delete()
     async deletarProfessor(@Body('_id') _id:string){
         return this.professorService.deletarProfessor(_id);
-    } 
+    }
 
 }

@@ -1,3 +1,4 @@
+import { TurmaService } from './../../shared/services/turma.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -28,16 +29,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ListarComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
-  dataSource = ELEMENT_DATA;
+  listTurmas: any;
+  dataSource: any;
 
   hiddenList = false;
   hiddenCreate = true;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private turmaService: TurmaService
   ) { }
 
   ngOnInit() {
+    this.dataSource = ELEMENT_DATA;
   }
 
   goToCreate(){
