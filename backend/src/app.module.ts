@@ -9,7 +9,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    branch-prof
+    ProfessorModule,
     CursoFicModule,
     TurmaModule,
     CursoFicModule,

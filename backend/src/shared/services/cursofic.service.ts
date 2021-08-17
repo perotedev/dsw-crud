@@ -17,6 +17,16 @@ export class CursoFicService {
         return await this.cursoFicModel.findById(_id).exec();
     }
 
+    async listarCursoPorNomeID(termo:any)
+    {
+        const onlyNumbers = /^\d+$/.test(termo);
+        if (onlyNumbers){
+            return this.cursoFicModel.find({ID: termo}).sort({nome: 1}).limit(10).exec();
+        } else {
+            return this.cursoFicModel.find({nome: {$regex: termo, $options: "i"}}).sort({nome: 1}).limit(10).exec();
+        }
+    }
+
     async criarCurso(curso: CursoFic)
     {
         const cursoCriado = new this.cursoFicModel(curso);

@@ -5,6 +5,9 @@ import {Document, SchemaTypes, Types} from "mongoose";
 export class CursoFic extends Document{
     _id: string;
 
+    @Prop()
+    ID: number;
+
     @Prop({required: true})
     nome: string;
 }
