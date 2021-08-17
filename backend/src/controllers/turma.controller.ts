@@ -37,8 +37,8 @@ export class TurmaController {
         return this.turmaService.atualizarTurma(_id, turma, expand);
     }
 
-    @Delete()
-    async deletarTurma(@Body('_id') _id:string)
+    @Delete(':_id')
+    async deletarTurma(@Param('_id') _id:string)
     {
         return this.turmaService.deletarTurma(_id);
     }

@@ -17,8 +17,7 @@ import { CursoFicService } from "src/shared/services/cursofic.service";
         }])
     ],
     controllers: [
-        CursoFicController,
-        CursoFicController,],
+        CursoFicController],
     providers: [
         CursoFicService,],
 })

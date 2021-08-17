@@ -19,11 +19,11 @@ export class TurmasComponent implements OnInit {
   }
 
   goToList(){
-    this.router.navigate(['listar-turmas']);
+    this.router.navigate([{outlets: {turma: 'listar-turmas'}}]);
   }
 
   goToCreate(){
-    this.router.navigate(['cadastrar-turmas']);
+    this.router.navigate([{outlets: {turma: 'cadastrar-turmas'}}]);
   }
 
 }

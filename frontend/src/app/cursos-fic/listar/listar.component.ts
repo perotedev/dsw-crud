@@ -33,6 +33,6 @@ export class ListarComponent implements OnInit {
   }
 
   goToCreate(){
-    this.router.navigate(['cadastrar-cursos']);
+    this.router.navigate([{outlets: {curso: 'cadastrar-cursos'}}]);
   }
 }
