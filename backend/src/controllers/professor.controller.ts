@@ -27,5 +27,9 @@ export class ProfessorController {
     async deletarProfessor(@Body('_id') _id:string){
         return this.professorService.deletarProfessor(_id);
     }
+    @Post()
+    async listarPorNome(@Body('nome') nome:string): Promise<Professor[]>{
+        return this.professorService.listarPorNome(nome);
+    } 
 
 }
