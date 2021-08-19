@@ -23,7 +23,7 @@ git clone https://github.com/perotedev/dsw-crud.git
 
 ## 🖥️ Backend NestJs
 Primeiro certifique-se de que as portas **4040** e **27027** do seu computador não estão sendo utilizadas por outras aplicações, é necessário que as mesmas estejam disponíveis.<br>
-Entre na pasta raiz do repositório **"dsw-crud"** pelo terminal e execute o comando:
+Entre na pasta raiz do repositório **`"dsw-crud"`** pelo terminal e execute o comando:
 
 ```bash
 # para executar apenas na primeira vez que rodar a aplicação
@@ -39,7 +39,7 @@ Após isso o backend da aplicação estará sendo executada.<br><br>
 ⚠️ Caso queira continuar utilizando o mesmo terminal será necessário executar o seguinte comando: `ctrl+c`. Pode ser que apareça a mensagem `ERROR: Aborting`, porém não se preocupe, a aplicação continuará rodando em background, apenas o script `build.sh` que será encerrado.
 <br>
 
-**Para rodar a aplicação da segunda vez em diante use os seguintes comandos para iniciar ou parar a execução:**<br>
+**Para rodar a aplicação da segunda vez em diante use os seguintes comandos na raiz do repositório `"dsw-crud"` pelo terminal para iniciar ou parar a execução:**<br>
 
 ```bash
 # para iniciar a aplicação
@@ -50,7 +50,7 @@ Após isso o backend da aplicação estará sendo executada.<br><br>
 ```
 <br>
 
-Para **remover** todos os containers criados pela aplicação entre na pasta raiz do repositório **"dsw-crud"** e execute o comando:
+Para **remover** todos os containers criados pela aplicação entre na pasta raiz do repositório **`"dsw-crud"`** pelo terminal e execute o comando:
 
 ```bash
 # para remover todos os containers da aplicação
