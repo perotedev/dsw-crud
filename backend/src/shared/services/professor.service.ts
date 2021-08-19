@@ -27,4 +27,7 @@ export class ProfessorService {
     async deletarProfessor(_id:string){
         return await this.professorModel.deleteOne({_id:_id}).exec();
     }
+    async listarPorNome(termo:string){
+        return this.professorModel.find({nome: {$regex: termo, $options: "i"}}).sort({nome: 1}).limit(10).exec();
+    }
 }
