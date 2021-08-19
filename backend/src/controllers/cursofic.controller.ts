@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put } from '@nestjs/common';
 import { CursoFic } from 'src/shared/schemas/cursoFic.schema';
 import { CursoFicService } from 'src/shared/services/cursofic.service';
 
@@ -16,6 +16,13 @@ export class CursoFicController {
     async listarCursoPorId(@Param('_id' ) _id:string): Promise<CursoFic>
     {
         return this.cursoFicService.listarCursoPorId(_id);
+    }
+
+    @Post('listar-curso-nome-id')
+    @HttpCode(200)
+    async listarCursosPorNomeID(@Body('termo') termo:any): Promise<CursoFic[]>
+    {
+        return this.cursoFicService.listarCursoPorNomeID(termo);
     }
 
     @Post()
