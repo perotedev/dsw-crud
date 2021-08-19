@@ -14,7 +14,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     TurmaModule,
     CursoFicModule,
     UsuarioModule,
-    MongooseModule.forRoot('mongodb://root:example@localhost:27017/crudDB?authSource=admin')
+    MongooseModule.forRoot('mongodb://database-crud:27027', { dbName: "cruddb", user: 'root', pass: 'example', authSource: "admin" })
   ],
   controllers: [AppController],
   providers: [AppService],
