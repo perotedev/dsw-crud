@@ -52,6 +52,7 @@ export class ListarComponent implements OnInit {
   }
 
   verTurma(value:string){
+    localStorage.setItem('turma_id', value)
     console.log(value);
   }
 
