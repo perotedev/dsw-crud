@@ -22,7 +22,6 @@ export class CadastrarComponent implements OnInit {
 
   constructor(
     private turmaService: TurmaService,
-    private alunoService: AlunoService,
     private cursoService: CursosFicService,
     private professorService: ProfessorService
   ) {}
@@ -48,15 +47,6 @@ export class CadastrarComponent implements OnInit {
       console.log(this.turma);
     }));
   }
-
-  // buscarAlunoPorNome(value:string){
-  //   let alunos = this.alunoService.listarAlunosPorNome(value);
-  //   this.alunos = this.myControl.valueChanges
-  //     .pipe(
-  //       startWith(''),
-  //       map(value => alunos),
-  //     );
-  // }
 
   buscarProfessorPorNome(value:string){
     let professores = this.professorService.listarProfessoresPorNome(value);
