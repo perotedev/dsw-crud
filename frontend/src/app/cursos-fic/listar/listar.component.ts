@@ -1,35 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-export interface CursosElement {
-  name: string;
-  numero_turmas: number;
-}
-
-const ELEMENT_DATA: CursosElement[] = [
-  {numero_turmas: 2, name: 'Java'},
-  {numero_turmas: 2, name: 'Python'},
-  {numero_turmas: 1, name: 'TypeScript'},
-  {numero_turmas: 1, name: 'C'},
-];
+import { Observable } from 'rxjs';
+import { CursoFicService } from '../../../../../backend/src/shared/services/cursofic.service';
 
 @Component({
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
-export class ListarComponent implements OnInit {
-
+export class ListarComponent implements OnInit, OnDestroy {
+  listCursos: any;
   displayedColumns: string[] = ['id', 'name', 'numero_turmas'];
-  dataSource = ELEMENT_DATA;
 
   hiddenList = false;
   hiddenCreate = true;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private cursoFicService: CursoFicService
   ) { }
 
   ngOnInit() {
+    this.listCursos();
+  }
+
+  ngOnDestroy(){
+
+  }
+
+  async listarCursos(){
+    this.listCursos = this.cursoFicService.listarCursos();
+    console.log(this.listCursos);
   }
 
   goToCreate(){
