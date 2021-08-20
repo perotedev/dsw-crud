@@ -17,6 +17,13 @@ const routes: Routes = [
     data: {
       title: 'USERS PAINEL'
     }
+  },
+  {
+    path: 'turmas',
+    component: UsersComponent,
+    data: {
+      title: 'TURMAS PAINEL'
+    }
   }
 ];
 

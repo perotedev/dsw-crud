@@ -1,0 +1,21 @@
+<section class="row w-100 h-100">
+  <div class="col-12">
+    <section class="row w-100">
+      <div class="col-12 col-md-2">
+        <div class="left-nav">
+          <mat-action-list>
+            <button mat-list-item (click)="goToList()"> Listar Turmas </button>
+            <button mat-list-item (click)="goToCreate()"> Cadastrar Turma </button>
+          </mat-action-list>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-10">
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+

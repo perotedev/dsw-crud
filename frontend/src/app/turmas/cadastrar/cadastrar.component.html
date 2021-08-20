@@ -1,0 +1,28 @@
+<mat-card id="title-table"> Cadastrar Turma </mat-card>
+<mat-card class="example-container mat-elevation-z8 out-tab">
+  <form class="example-form input-name row">
+    <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
+      <mat-label>Nome da Turma</mat-label>
+      <input matInput placeholder="Ex. Desenvolvimento Java">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
+      <mat-label>Nome do Professor</mat-label>
+      <input matInput placeholder="Ex. João Carlos da Silva">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-2 example-full-width" appearance="fill">
+      <mat-label>Data do Início</mat-label>
+      <input type="date" #dataInicio matInput max="2050-04-20">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-2 example-full-width" appearance="fill">
+      <mat-label>Data do Fim</mat-label>
+      <input type="date" #dataFim matInput  max="2050-04-20">
+    </mat-form-field>
+  </form>
+
+  <div class="text-right">
+    <button mat-raised-button id="create-button">Cadastrar Turma +</button>
+  </div>
+</mat-card>

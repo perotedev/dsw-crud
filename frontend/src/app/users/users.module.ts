@@ -1,3 +1,4 @@
+import { MaterialAngular } from './../shared/style/material-angular.module';
 import { UpdateModule } from './update/update.module';
 import { IndexModule } from './index/index.module';
 import { UsersComponent } from './users.component';
@@ -6,8 +7,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { SiginModule } from './sigin/sigin.module';
 import { SearchModule } from './search/search.module'
-import { UsersService } from './users.service';
-import { SearchComponent } from './search/search.component';
+import { UsersService } from '../shared/services/users.service';
 
 @NgModule({
   declarations: [UsersComponent],
@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
     SearchModule,
     IndexModule,
     UpdateModule,
+    MaterialAngular
   ],
   exports: [
     UsersComponent,

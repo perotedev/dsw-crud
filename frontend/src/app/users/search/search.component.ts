@@ -1,4 +1,4 @@
-import { UserInterface } from './../../interfaces/user.inteface';
+import { UserInterface } from '../../shared/interfaces/user.inteface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   }
 
   procurar (user: UserInterface){
-    
+
   }
 
 }
