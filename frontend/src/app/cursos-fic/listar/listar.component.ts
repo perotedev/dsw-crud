@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CursoFicService } from '../../../../../backend/src/shared/services/cursofic.service';
+import { CursosFicService } from 'src/app/shared/services/cursofic.service';
 
 @Component({
   templateUrl: './listar.component.html',
@@ -10,13 +10,13 @@ import { CursoFicService } from '../../../../../backend/src/shared/services/curs
 export class ListarComponent implements OnInit, OnDestroy {
   listCursos: any;
   displayedColumns: string[] = ['id', 'name', 'numero_turmas'];
-
+  dataSource: string[] = ['id', 'name', 'numero_turmas'];
   hiddenList = false;
   hiddenCreate = true;
 
   constructor(
     private router: Router,
-    private cursoFicService: CursoFicService
+    private cursoFicService: CursosFicService
   ) { }
 
   ngOnInit() {

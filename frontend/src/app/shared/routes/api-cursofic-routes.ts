@@ -1,6 +1,6 @@
 export const ApiCursoFicRoutes = {
-    cursos: "curso",
-    delete: "turma/",
-    listarCursosPorId: "turma/",
-    listarCursosPorNomeID: "turma/listar-nome-id"
+    cursos: "cursoFic",
+    delete: "cursoFic/",
+    listarCursosPorId: "cursoFic/",
+    listarCursosPorNomeID: "cursoFic/listar-curso-nome-id"
 }

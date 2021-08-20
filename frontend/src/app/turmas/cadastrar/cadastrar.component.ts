@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs';
-import { TurmaInterface } from './../../shared/interfaces/turma.interface';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/shared/services/turma.service';
 import { AlunoService } from 'src/app/shared/services/aluno.service';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
+import { CursosFicService } from 'src/app/shared/services/cursofic.service';
+import { ProfessorService } from 'src/app/shared/services/professor.service';
 
 
 @Component({
@@ -15,12 +15,16 @@ import { map, startWith } from 'rxjs/operators';
 export class CadastrarComponent implements OnInit {
   turma: any;
   optionAluno: any;
-  myControl = new FormControl();
-  alunos: any;
+  professorControl = new FormControl();
+  cursoControl = new FormControl();
+  professores: any;
+  cursos: any;
 
   constructor(
     private turmaService: TurmaService,
     private alunoService: AlunoService,
+    private cursoService: CursosFicService,
+    private professorService: ProfessorService
   ) {}
 
   ngOnInit() {
@@ -45,21 +49,34 @@ export class CadastrarComponent implements OnInit {
     }));
   }
 
-  buscarAlunoPorNome(value:string){
-    let alunos = this.alunoService.listarAlunosPorNome(value);
-    this.alunos = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => alunos),
-      );
+  // buscarAlunoPorNome(value:string){
+  //   let alunos = this.alunoService.listarAlunosPorNome(value);
+  //   this.alunos = this.myControl.valueChanges
+  //     .pipe(
+  //       startWith(''),
+  //       map(value => alunos),
+  //     );
+  // }
+
+  buscarProfessorPorNome(value:string){
+    let professores = this.professorService.listarProfessoresPorNome(value);
+    this.professores = this.cursoControl.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => professores),
+        );
+    console.log(professores);
   }
 
+
   buscarCursoPorNome(value:string){
-    let alunos = this.alunoService.listarAlunosPorNome(value);
-    this.alunos = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => alunos),
-      );
+    this.cursoService.listarCursosPorNomeID(value).subscribe((res =>{
+      console.log(res);
+      this.cursos = this.cursoControl.valueChanges
+          .pipe(
+            startWith(''),
+            map(value => res),
+          );
+    }));
   }
 }

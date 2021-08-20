@@ -8,14 +8,19 @@
 
     <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
       <mat-label>Professor</mat-label>
-      <input matInput placeholder="Ex. João Carlos da Silva">
+      <input #professor matInput type="text" (formControl)="professorControl" [matAutocomplete]="autoProf" (keyup)="buscarProfessorPorNome(professor.value)" placeholder="Ex. João Carlos da Silva">
+      <mat-autocomplete #autoProf="matAutocomplete">
+        <mat-option *ngFor="let option of professores | async" [value]="option['nome']">
+          {{option['nome']}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
       <mat-label>Curso FIC</mat-label>
-      <input #aluno matInput type="text" (formControl)="myControl" [matAutocomplete]="auto" (keyup)="buscarAlunoPorNome(aluno.value)" placeholder="Ex. Persistência de Dados">
+      <input #curso matInput type="text" (formControl)="cursoControl" [matAutocomplete]="auto" (keyup)="buscarCursoPorNome(curso.value)" placeholder="Ex. Persistência de Dados">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of alunos | async" [value]="option['nome']">
+        <mat-option *ngFor="let option of cursos | async" [value]="option['nome']">
           {{option['nome']}}
         </mat-option>
       </mat-autocomplete>
