@@ -32,12 +32,11 @@ Entre na pasta raiz do repositório **`"dsw-crud"`** pelo terminal e execute o c
 <p>Aguarde até que o terminal mostre a mensagem abaixo: </p>
 
 ```bash
-[NestApplication] Nest application successfully started
+Backend iniciado em  http://localhost:4040 💡
+Frontend iniciado em  http://localhost:5050 💡
 ```
 
 Após isso a aplicação estará sendo executada.<br><br>
-⚠️ Caso queira continuar utilizando o mesmo terminal será necessário executar o seguinte comando: `ctrl+c`. Pode ser que apareça a mensagem `ERROR: Aborting`, porém não se preocupe, a aplicação continuará rodando em background, apenas o script `build.sh` que será encerrado.
-<br>
 
 **Para rodar a aplicação da segunda vez em diante use os seguintes comandos na raiz do repositório `"dsw-crud"` pelo terminal para iniciar ou parar a execução:**<br>
 
