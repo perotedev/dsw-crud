@@ -6,7 +6,7 @@ db.turmas.insertMany([
                 ObjectId("60d8ad29967c085268fb5187")
         ],
         ID : 1,
-        nome : "Turma 01",
+        nome : "Intermediário",
         dataInicio : ISODate("2021-06-29T00:04:01.665Z"),
         dataFim : ISODate("2021-10-29T00:04:01.665Z"),
         cursoId : ObjectId("60d8ad29967c085268fb5191"),
@@ -21,7 +21,7 @@ db.turmas.insertMany([
                 ObjectId("60d8ad29967c085268fb5189")
         ],
         ID : 2,
-        nome : "Turma 02",
+        nome : "Avançado II",
         dataInicio : ISODate("2021-06-29T00:04:01.665Z"),
         dataFim : ISODate("2021-10-29T00:04:01.665Z"),
         cursoId : ObjectId("60d8ad29967c085268fb5192"),
@@ -36,7 +36,7 @@ db.turmas.insertMany([
                 ObjectId("60d8ad29967c085268fb5187")
         ],
         ID : 3,
-        nome : "Turma 03",
+        nome : "Iniciante I",
         dataInicio : ISODate("2021-06-29T00:04:01.665Z"),
         dataFim : ISODate("2021-10-29T00:04:01.665Z"),
         cursoId : ObjectId("60d8ad29967c085268fb5193"),
@@ -45,3 +45,4 @@ db.turmas.insertMany([
         updatedAt : ISODate("2021-08-11T00:21:03.433Z")
     }
 ])
+

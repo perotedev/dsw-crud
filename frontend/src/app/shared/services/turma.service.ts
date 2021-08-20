@@ -20,7 +20,7 @@ export class TurmaService {
   ) {}
 
   listarTurmas() {
-    return this.http.get(API_URL_BASE+TURMA.turmas+"?expand="+TURMA.expands.curso, this.httpOptions);
+    return this.http.get(API_URL_BASE+TURMA.turmas+"?expand="+TURMA.expands.curso);
   }
 
   listarTurmaPorNomeID(termo:string) {
@@ -42,7 +42,9 @@ export class TurmaService {
     return this.http.put(API_URL_BASE+TURMA.turmas+"?expand="+expands, turma);
   }
 
-  deletarTurma(_id:string){
-    this.http.delete(API_URL_BASE+TURMA.delete+_id);
+  async deletarTurma(_id:string){
+    await this.http.delete(API_URL_BASE+TURMA.delete+_id).subscribe(res => {
+      console.log(res);
+    });
   }
 }
