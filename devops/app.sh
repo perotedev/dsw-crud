@@ -1,7 +1,9 @@
 #!/bin/bash
 INIT="\e[01;33mIniciando Containers\e[00m 🔖\n"
-START="\e[01;33mInciando aplicação em\e[00m"
-APP_PORT="\e[01;36m http://localhost:4040\e[00m 💡"
+FRONT_START="\e[01;33mFrontend iniciado em\e[00m"
+BACK_START="\e[01;33mBackend iniciado em\e[00m"
+FRONT_PORT="\e[01;36m http://localhost:5050\e[00m 💡"
+BACK_PORT="\e[01;36m http://localhost:4040\e[00m 💡"
 STOP_INIT="\e[01;33mParando Containers\e[00m 🥵\n"
 STOP_FINISH="\e[01;36mA aplicação foi encerrada\e[00m 🥱"
 REMOVE_FINISH="\e[01;36mA aplicação foi removida\e[00m 😮‍💨"
@@ -26,11 +28,8 @@ then
         # Inicializa os containers
         echo -e "\n$INIT"
         docker-compose start
-
-        # Inicia a aplicação
-        echo -e "\n$START $APP_PORT"
-        sleep 2
-        docker-compose exec -T dsw-crud /bin/bash -c \ "cd /home/node/app && npm run start:prod"
+        echo -e "\n$BACK_START $BACK_PORT"
+        echo -e "$FRONT_START $FRONT_PORT"
     fi
 else
     if [ $1 == "stop" ]
