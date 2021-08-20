@@ -2,7 +2,7 @@ import { AlunoService } from './../../shared/services/aluno.service';
 import { TurmaInterface } from './../../shared/interfaces/turma.interface';
 import { TurmaService } from './../../shared/services/turma.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -63,8 +63,9 @@ export class ListarComponent implements OnInit {
 
   deletarTurma(){
     console.log(this.turma);
-    this.turmaService.deletarTurma(this.turma._id);
-    this.listarTurmas();
+    this.turmaService.deletarTurma(this.turma._id).then((res => {
+      this.listarTurmas();
+    }));
   }
 
   openVerticallyCentered(content:any, element:TurmaInterface) {

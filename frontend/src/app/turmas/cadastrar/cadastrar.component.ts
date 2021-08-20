@@ -1,7 +1,11 @@
+import { Observable } from 'rxjs';
 import { TurmaInterface } from './../../shared/interfaces/turma.interface';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/shared/services/turma.service';
 import { AlunoService } from 'src/app/shared/services/aluno.service';
+import { FormControl } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-cadastrar',
@@ -10,18 +14,20 @@ import { AlunoService } from 'src/app/shared/services/aluno.service';
 })
 export class CadastrarComponent implements OnInit {
   turma: any;
-  alunos: any;
   optionAluno: any;
+  myControl = new FormControl();
+  alunos: any;
 
   constructor(
     private turmaService: TurmaService,
     private alunoService: AlunoService,
-  ) { }
+  ) {}
 
   ngOnInit() {
+
   }
 
-  
+
 
   cadastrarTurma(nome:string, professorId:string, cursoId:string, dataInicio:Date, dataFim:Date){
     const dadosTurma  = {
@@ -39,8 +45,21 @@ export class CadastrarComponent implements OnInit {
     }));
   }
 
-  listarAlunoPorNome(value:string){
-    this.alunos = this.alunoService.listarAlunosPorNome(value);
-    console.log(this.alunos);
+  buscarAlunoPorNome(value:string){
+    let alunos = this.alunoService.listarAlunosPorNome(value);
+    this.alunos = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => alunos),
+      );
+  }
+
+  buscarCursoPorNome(value:string){
+    let alunos = this.alunoService.listarAlunosPorNome(value);
+    this.alunos = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => alunos),
+      );
   }
 }
