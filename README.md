@@ -55,3 +55,5 @@ Para **remover** todos os containers criados pela aplicação entre na pasta rai
 # para remover todos os containers da aplicação
 ./devops/app.sh remove
 ```
+
+⚠️ Caso remova os containers da aplicação, ao executá-la novamente deverá ser utilizado o comando `./devops/app.sh build` novamente pois será necessário criar os containers novamente.
