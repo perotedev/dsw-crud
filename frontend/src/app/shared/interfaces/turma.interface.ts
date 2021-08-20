@@ -4,6 +4,7 @@ export interface TurmaInterface {
   nome:string,
   professorId:string,
   cursoId:string,
+  alunosId:[],
   dataInicio:Date,
   dataFim:Date,
   professor:[],

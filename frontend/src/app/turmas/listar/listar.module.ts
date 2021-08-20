@@ -1,3 +1,4 @@
+import { PipesModule } from './../../shared/pipes/pipes.module';
 import { MaterialAngular } from './../../shared/style/material-angular.module';
 import { ListarRoutingModule } from './listar.routing.module';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,8 @@ import { ListarComponent } from './listar.component';
   imports: [
     CommonModule,
     ListarRoutingModule,
-    MaterialAngular
+    MaterialAngular,
+    PipesModule
   ],
   declarations: [ListarComponent],
   exports:[
