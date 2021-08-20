@@ -2,7 +2,7 @@
 
 cd /home/node/app
 
-# instala o npm na raiz do app
+# instala as dependencias npm na raiz do app
 npm install
 
 # instala o mogoose

@@ -21,8 +21,8 @@ git clone https://github.com/perotedev/dsw-crud.git
 ```
 <div id="backend_exex"></div>
 
-## 🖥️ Backend NestJs
-Primeiro certifique-se de que as portas **4040** e **27027** do seu computador não estão sendo utilizadas por outras aplicações, é necessário que as mesmas estejam disponíveis.<br>
+## 🖥️ Frontend Angular e Backend NestJS
+Primeiro certifique-se de que as portas **5050**, **4040** e **27027** do seu computador não estão sendo utilizadas por outras aplicações, é necessário que as mesmas estejam disponíveis.<br>
 Entre na pasta raiz do repositório **`"dsw-crud"`** pelo terminal e execute o comando:
 
 ```bash
@@ -35,7 +35,7 @@ Entre na pasta raiz do repositório **`"dsw-crud"`** pelo terminal e execute o c
 [NestApplication] Nest application successfully started
 ```
 
-Após isso o backend da aplicação estará sendo executada.<br><br>
+Após isso a aplicação estará sendo executada.<br><br>
 ⚠️ Caso queira continuar utilizando o mesmo terminal será necessário executar o seguinte comando: `ctrl+c`. Pode ser que apareça a mensagem `ERROR: Aborting`, porém não se preocupe, a aplicação continuará rodando em background, apenas o script `build.sh` que será encerrado.
 <br>
 

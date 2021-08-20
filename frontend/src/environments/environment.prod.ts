@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlBase: "http://localhost:3000/"
+  urlBase: "http://dsw-crud:4040/"
 };

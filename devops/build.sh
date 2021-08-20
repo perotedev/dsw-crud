@@ -17,7 +17,12 @@ done
 # Semeia fake-database
 ./devops/seed-fake-database.sh
 
+# Inicia o frontend
+# ./devops/front.sh
+
 # Inicia a aplicação
 echo -e "\n$START $APP_PORT"
 sleep 2
 docker-compose exec -T dsw-crud /bin/bash -c "cd /home/node/app/.docker && ./entrypoint.sh"
+
+# gnome-terminal -- bash -c 'cd frontend; npm run start;'
