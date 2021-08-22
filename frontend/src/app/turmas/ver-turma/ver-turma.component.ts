@@ -5,7 +5,7 @@ import { AlunoService } from 'src/app/shared/services/aluno.service';
 import { TurmaInterface } from './../../shared/interfaces/turma.interface';
 import { TurmaService } from 'src/app/shared/services/turma.service';
 import { Component, OnInit } from '@angular/core';
-import { catchError, map, startWith } from 'rxjs/operators';
+import { catchError, map, startWith, timeout } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -111,6 +111,12 @@ export class VerTurmaComponent implements OnInit {
       this.snackBar.open("Escolha um aluno para matricular!", "Fechar", {
         verticalPosition: 'top'
       });
+      this.resetAutoComplete();
+    } else if(this.turma.alunosId.includes(this.alunoMatricularId)){
+      this.snackBar.open("Aluno já está matriculado na turma!", "Fechar", {
+        verticalPosition: 'top'
+      });
+      this.resetAutoComplete();
     } else {
       this.turma.alunosId.push(this.alunoMatricularId);
       console.log(this.alunoMatricularId);
@@ -123,6 +129,15 @@ export class VerTurmaComponent implements OnInit {
         this.listaDeAlunos = res.alunos;
         console.log(res);
       }))
+      this.resetAutoComplete();
     }
+  }
+
+  resetAutoComplete(){
+    this.buscaAlunos = this.alunoControl.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => []),
+        );
   }
 }
