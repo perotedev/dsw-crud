@@ -1,3 +1,4 @@
+import { TurmaCreateInterface } from './../interfaces/turma.interface';
 import { environment } from './../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -33,7 +34,7 @@ export class TurmaService {
     return this.http.get(API_URL_BASE+TURMA.listarTurmaPorId+_id+"?expand="+expands);
   }
 
-  criarTurma(turma:TurmaInterface){
+  criarTurma(turma:TurmaCreateInterface){
     return this.http.post(API_URL_BASE+TURMA.turmas, turma);
   }
 

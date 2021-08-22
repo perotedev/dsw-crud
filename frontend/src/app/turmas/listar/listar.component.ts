@@ -64,7 +64,9 @@ export class ListarComponent implements OnInit {
   deletarTurma(){
     console.log(this.turma);
     this.turmaService.deletarTurma(this.turma._id).then((res => {
-      this.listarTurmas();
+      const interval = setTimeout(() => {
+        this.listarTurmas();
+      }, 1000);
     }));
   }
 

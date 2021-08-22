@@ -3,41 +3,41 @@
   <form class="example-form input-name row">
     <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
       <mat-label>Nome da Turma</mat-label>
-      <input matInput placeholder="Ex. Turma 01">
+      <input required #nomeTurma type="text" matInput placeholder="Ex. Turma 01">
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
       <mat-label>Professor</mat-label>
-      <input #professor matInput type="text" (formControl)="professorControl" [matAutocomplete]="autoProf" (keyup)="buscarProfessorPorNome(professor.value)" placeholder="Ex. João Carlos da Silva">
+      <input required #professor matInput type="text" (formControl)="professorControl" [matAutocomplete]="autoProf" (keyup)="buscarProfessorPorNome(professor.value)" placeholder="Ex. João Carlos da Silva">
       <mat-autocomplete #autoProf="matAutocomplete">
-        <mat-option *ngFor="let option of professores | async" [value]="option['nome']">
-          {{option['nome']}}
+        <mat-option *ngFor="let optionProfessor of professores | async" [value]="optionProfessor['nome']" (onSelectionChange)="setProfessor(optionProfessor._id)">
+          {{optionProfessor['nome']}}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-4 example-full-width" appearance="fill">
       <mat-label>Curso FIC</mat-label>
-      <input #curso matInput type="text" (formControl)="cursoControl" [matAutocomplete]="auto" (keyup)="buscarCursoPorNome(curso.value)" placeholder="Ex. Persistência de Dados">
+      <input required #curso matInput type="text" (formControl)="cursoControl" [matAutocomplete]="auto" (keyup)="buscarCursoPorNome(curso.value)" placeholder="Ex. Persistência de Dados">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of cursos | async" [value]="option['nome']">
-          {{option['nome']}}
+        <mat-option *ngFor="let optionCurso of cursos | async" [value]="optionCurso['nome']" (onSelectionChange)="setCurso(optionCurso._id)">
+          {{optionCurso['nome']}}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-2 example-full-width" appearance="fill">
       <mat-label>Data do Início</mat-label>
-      <input type="date" #dataInicio matInput max="2050-04-20">
+      <input required type="date" #dataInicio matInput max="2050-04-20">
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-2 example-full-width" appearance="fill">
       <mat-label>Data do Fim</mat-label>
-      <input type="date" #dataFim matInput  max="2050-04-20">
+      <input required type="date" #dataFim matInput max="2050-04-20">
     </mat-form-field>
   </form>
 
   <div class="text-right">
-    <button mat-raised-button id="create-button">Cadastrar Turma +</button>
+    <button (click)="cadastrarTurma(nomeTurma.value, dataInicio.value, dataFim.value)"  mat-raised-button id="create-button">Cadastrar Turma +</button>
   </div>
 </mat-card>
