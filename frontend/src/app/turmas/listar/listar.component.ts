@@ -12,6 +12,8 @@ import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 export class ListarComponent implements OnInit {
   listTurmas: any;
   turma: TurmaInterface;
+  nomeTurma:string="";
+  nomeCurso:string="";
   displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
 
   constructor(
@@ -73,6 +75,8 @@ export class ListarComponent implements OnInit {
 
   openVerticallyCentered(content:any, element:TurmaInterface) {
     this.turma = element;
+    this.nomeTurma = element.nome;
+    this.nomeCurso = element.curso[0]['nome'];
     this.modalService.open(content, { centered: true});
   }
 }
