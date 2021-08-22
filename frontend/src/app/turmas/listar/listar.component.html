@@ -43,8 +43,8 @@
 
        <!-- See Column -->
        <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
-        <td mat-cell *matCellDef="let element">
+        <th mat-header-cell *matHeaderCellDef class=""> </th>
+        <td mat-cell *matCellDef="let element" class="text-right">
           <mat-icon (click)="verTurma(element._id)" class="action-buttons pointer" aria-hidden="false">remove_red_eye</mat-icon>
           <mat-icon (click)="editarTurma(element._id)" class="action-buttons pointer" aria-hidden="false">edit</mat-icon>
           <mat-icon  (click)="openVerticallyCentered(content, element)" class="action-buttons pointer" aria-hidden="false">delete</mat-icon>
