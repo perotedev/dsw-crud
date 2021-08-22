@@ -55,11 +55,11 @@ export class ListarComponent implements OnInit {
   verTurma(value:string){
     localStorage.setItem('turma_id', value)
     this.router.navigate([{outlets: {turma: 'ver-turma'}}])
-    console.log(value);
   }
 
-  editarTurma(value:string){
-    console.log(value);
+  editarTurma(_id:string){
+    localStorage.setItem('turma', _id);
+    this.router.navigate([{outlets: {turma: 'editar-turma'}}]);
   }
 
   deletarTurma(){

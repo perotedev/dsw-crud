@@ -50,7 +50,7 @@ constructor() { }
     for (let i = 0; i < alunos.length; i++){
       if(alunos[i].nome.toLowerCase().includes(termo)){
          todosAlunos.push(alunos[i]);
-      } else if (alunos[i].nome.includes(termo)){
+      } else if (alunos[i].nome.includes(termo) || alunos[i].matricula.toString().includes(termo)){
         todosAlunos.push(alunos[i]);
       }
     }

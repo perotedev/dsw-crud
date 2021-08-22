@@ -40,7 +40,7 @@ export class TurmaService {
 
   atualizarTurma(turma:TurmaInterface){
     let expands = TURMA.expands.curso+","+TURMA.expands.professor+","+TURMA.expands.alunos;
-    return this.http.put(API_URL_BASE+TURMA.turmas+"?expand="+expands, turma);
+    return this.http.put<TurmaInterface>(API_URL_BASE+TURMA.turmas+"?expand="+expands, turma);
   }
 
   async deletarTurma(_id:string){

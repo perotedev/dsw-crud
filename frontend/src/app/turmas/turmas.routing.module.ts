@@ -3,6 +3,7 @@ import { TurmasComponent } from './turmas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { VerTurmaComponent } from './ver-turma/ver-turma.component';
+import { EditarTurmaComponent } from './editar-turma/editar-turma.component';
 ;
 
 const routes: Routes = [
@@ -34,6 +35,14 @@ const routes: Routes = [
     component: VerTurmaComponent,
     data: {
       title: 'VER TURMA PAINEL'
+    },
+    outlet: "turma"
+  },
+  {
+    path: 'editar-turma',
+    component: EditarTurmaComponent,
+    data: {
+      title: 'EDITAR TURMA PAINEL'
     },
     outlet: "turma"
   }

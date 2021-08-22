@@ -1,3 +1,4 @@
+import { EditarTurmaModule } from './editar-turma/editar-turma.module';
 import { TurmaService } from './../shared/services/turma.service';
 import { VerTurmaModule } from './ver-turma/ver-turma.module';
 import { MaterialAngular } from './../shared/style/material-angular.module';
@@ -15,6 +16,7 @@ import { TurmasComponent } from './turmas.component';
     CadastrarModule,
     ListarModule,
     VerTurmaModule,
+    EditarTurmaModule,
     MaterialAngular
   ],
   declarations: [TurmasComponent],

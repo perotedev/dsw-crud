@@ -45,3 +45,19 @@ table {
 .pointer {
   cursor: pointer;
 }
+
+.btn-remover{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: small;
+}
+
+#create-button {
+  align-items: center;
+  font-size: medium;
+  background-color: #00A85A;
+  color: white;
+  height: 3rem;
+}
