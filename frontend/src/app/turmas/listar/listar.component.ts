@@ -11,7 +11,7 @@ import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ListarComponent implements OnInit {
   listTurmas: any;
-  turma: any;
+  turma: TurmaInterface;
   displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
 
   constructor(
@@ -54,6 +54,7 @@ export class ListarComponent implements OnInit {
 
   verTurma(value:string){
     localStorage.setItem('turma_id', value)
+    this.router.navigate([{outlets: {turma: 'ver-turma'}}])
     console.log(value);
   }
 

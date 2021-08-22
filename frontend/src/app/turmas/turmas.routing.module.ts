@@ -2,6 +2,7 @@ import { ListarComponent } from './listar/listar.component';
 import { TurmasComponent } from './turmas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { VerTurmaComponent } from './ver-turma/ver-turma.component';
 ;
 
 const routes: Routes = [
@@ -25,6 +26,14 @@ const routes: Routes = [
     component: CadastrarComponent,
     data: {
       title: 'CADASTRAR PAINEL'
+    },
+    outlet: "turma"
+  },
+  {
+    path: 'ver-turma',
+    component: VerTurmaComponent,
+    data: {
+      title: 'VER TURMA PAINEL'
     },
     outlet: "turma"
   }

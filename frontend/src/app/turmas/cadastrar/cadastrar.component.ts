@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 import { CursosFicService } from 'src/app/shared/services/cursofic.service';
 import { ProfessorService } from 'src/app/shared/services/professor.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -21,13 +22,21 @@ export class CadastrarComponent implements OnInit {
   cursos: any;
   professorId: string = "";
   cursoId: string = "";
+  novaTurma = true;
+  listTurma: TurmaInterface[] = [];
+  displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
 
   constructor(
     private turmaService: TurmaService,
     private cursoService: CursosFicService,
     private professorService: ProfessorService,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private modalService: NgbModal,
+    private config: NgbModalConfig,
+  ) {
+    this.config.backdrop = 'static';
+    this.config.keyboard = false;
+  }
 
   ngOnInit() {
   }
@@ -55,6 +64,7 @@ export class CadastrarComponent implements OnInit {
       dadosTurma.dataFim = new Date(dataFim).toISOString();
       this.turmaService.criarTurma(dadosTurma).subscribe((res => {
         this.turma = res;
+        this.listarTurmaPorId(this.turma._id);
         console.log(this.turma);
       }));
     }
@@ -91,5 +101,33 @@ export class CadastrarComponent implements OnInit {
       return false
     }
     return true;
+  }
+
+  listarTurmaPorId(_id:string){
+    this.turmaService.listarTurmaPorId(_id).subscribe((res => {
+      this.turma = res;
+      this.listTurma = [ this.turma ];
+      this.novaTurma = false;
+    }));
+  }
+
+  verTurma(value:string){
+    localStorage.setItem('turma_id', value)
+    console.log(value);
+  }
+
+  editarTurma(value:string){
+    console.log(value);
+  }
+
+  deletarTurma(){
+    console.log(this.turma);
+    this.turmaService.deletarTurma(this.turma._id).then((res => {
+      this.novaTurma = true;
+    }));
+  }
+
+  openVerticallyCentered(content:any) {
+    this.modalService.open(content, { centered: true});
   }
 }

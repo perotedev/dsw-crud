@@ -1,3 +1,4 @@
+import { PipesModule } from './../../shared/pipes/pipes.module';
 import { MaterialAngular } from './../../shared/style/material-angular.module';
 import { CadastrarRoutingModule } from './cadastrar.routing.module';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,8 @@ import { CadastrarComponent } from './cadastrar.component';
   imports: [
     CommonModule,
     CadastrarRoutingModule,
-    MaterialAngular
+    MaterialAngular,
+    PipesModule
   ],
   declarations: [CadastrarComponent],
   exports: [

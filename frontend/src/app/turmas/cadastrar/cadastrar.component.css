@@ -68,3 +68,23 @@
   justify-content: right;
   justify-items: right;
 }
+
+table {
+  width: 100%;
+  padding-right: 0%;
+}
+
+.mat-header-cell {
+  background-color: #00A85A;
+  color: white;
+  font-size: medium;
+}
+
+.action-buttons {
+  color: #00914E;
+  margin-right: 0.7rem;
+}
+
+.pointer {
+  cursor: pointer;
+}

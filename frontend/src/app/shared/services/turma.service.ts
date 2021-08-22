@@ -31,7 +31,7 @@ export class TurmaService {
 
   listarTurmaPorId(_id:string) {
     let expands = TURMA.expands.curso+","+TURMA.expands.professor+","+TURMA.expands.alunos;
-    return this.http.get(API_URL_BASE+TURMA.listarTurmaPorId+_id+"?expand="+expands);
+    return this.http.get<TurmaInterface>(API_URL_BASE+TURMA.listarTurmaPorId+_id+"?expand="+expands);
   }
 
   criarTurma(turma:TurmaCreateInterface){
