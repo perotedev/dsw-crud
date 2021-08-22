@@ -7,7 +7,7 @@ BACK_PORT="\e[01;36m http://localhost:4040\e[00m 💡"
 STOP_INIT="\e[01;33mParando Containers\e[00m 🥵\n"
 STOP_FINISH="\e[01;36mA aplicação foi encerrada\e[00m 🥱"
 REMOVE_FINISH="\e[01;36mA aplicação foi removida\e[00m 😮‍💨"
-REMOVE_INIT="\e[01;33mRemovendo Containers\e[00m 🥲\n"
+REMOVE_INIT="\e[01;33mRemovendo Imagens e Containers\e[00m 🥲\n"
 COMMAND="\e[01;33m'$1'\e[00m"
 COMMAND_START="\e[01;36mstart\e[00m"
 COMMAND_STOP="\e[01;36mstop\e[00m"
@@ -43,6 +43,7 @@ else
         # Removendo os containers
         echo -e "\n$REMOVE_INIT"
         docker-compose down --remove-orphans
+        docker rmi -f dsw-crud_frontend:latest dsw-crud_dsw-crud:latest
         echo -e "\n$REMOVE_FINISH\n"
     elif [ $1 == "build" ]
     then
