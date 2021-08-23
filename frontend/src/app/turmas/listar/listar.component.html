@@ -43,8 +43,8 @@
 
        <!-- See Column -->
        <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
-        <td mat-cell *matCellDef="let element">
+        <th mat-header-cell *matHeaderCellDef class=""> </th>
+        <td mat-cell *matCellDef="let element" class="text-right">
           <mat-icon (click)="verTurma(element._id)" class="action-buttons pointer" aria-hidden="false">remove_red_eye</mat-icon>
           <mat-icon (click)="editarTurma(element._id)" class="action-buttons pointer" aria-hidden="false">edit</mat-icon>
           <mat-icon  (click)="openVerticallyCentered(content, element)" class="action-buttons pointer" aria-hidden="false">delete</mat-icon>
@@ -71,8 +71,8 @@
     </button>
   </div>
   <div class="modal-body">
-    <p><b>Nome:</b> {{turma.nome}}</p>
-    <p><b>Curso:</b> {{turma.curso[0]['nome']}}</p>
+    <p><b>Nome:</b> {{nomeTurma}}</p>
+    <p><b>Curso:</b> {{nomeCurso}}</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Não</button>

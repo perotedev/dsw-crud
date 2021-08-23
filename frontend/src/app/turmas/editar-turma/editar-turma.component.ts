@@ -1,4 +1,4 @@
-import { TurmaCreateInterface, TurmaInterface } from './../../shared/interfaces/turma.interface';
+import { TurmaCreateInterface, TurmaInterface, TurmaUpdateInterface } from './../../shared/interfaces/turma.interface';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/shared/services/turma.service';
 import { FormControl } from '@angular/forms';
@@ -9,13 +9,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-cadastrar',
-  templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.css']
+  selector: 'app-editar-turma',
+  templateUrl: './editar-turma.component.html',
+  styleUrls: ['./editar-turma.component.css']
 })
-export class CadastrarComponent implements OnInit {
+export class EditarTurmaComponent implements OnInit {
   turma: any;
   professorControl = new FormControl();
   cursoControl = new FormControl();
@@ -23,7 +22,16 @@ export class CadastrarComponent implements OnInit {
   cursos: any;
   professorId: string = "";
   cursoId: string = "";
-  novaTurma = true;
+  turmaEditada = true;
+  nome: string;
+
+  turmaID: number;
+  nomeDaTurma: string;
+  nomeProfessor: string;
+  nomeCurso: string;
+  inicio: string;
+  fim: string;
+
   listTurma: TurmaInterface[] = [];
   displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
 
@@ -41,6 +49,16 @@ export class CadastrarComponent implements OnInit {
   }
 
   ngOnInit() {
+    let _id:any = localStorage.getItem('turma');
+    this.turmaService.listarTurmaPorId(_id).subscribe((res => {
+      this.turma = res;
+      this.turmaID = this.turma.ID;
+      this.nomeDaTurma = this.turma.nome;
+      this.nomeProfessor = this.turma.professor[0]['nome'];
+      this.nomeCurso = this.turma.curso[0]['nome'];
+      this.inicio = this.transformDate(this.turma.dataInicio);
+      this.fim = this.transformDate(this.turma.dataFim);
+    }));
   }
 
   setProfessor(_id:string){
@@ -51,20 +69,22 @@ export class CadastrarComponent implements OnInit {
     this.cursoId = _id;
   }
 
-  cadastrarTurma(nome:string, dataInicio:string, dataFim:string){
-    const dadosTurma: TurmaCreateInterface  = {
+  atualizarTurma(nome:string, dataInicio:string, dataFim:string){
+    const dadosTurma: any  = {
+      _id: this.turma._id,
       nome: nome,
-      professorId: this.professorId,
-      cursoId: this.cursoId,
+      professorId: this.professorId==""?this.turma.professorId:this.professorId,
+      cursoId: this.cursoId==""?this.turma.cursoId:this.cursoId,
       dataInicio: dataInicio,
       dataFim: dataFim
     };
+    console.log(dadosTurma);
     let validacao = this.validarTurma(dadosTurma);
 
     if (validacao){
       dadosTurma.dataInicio = new Date(dataInicio).toISOString();
       dadosTurma.dataFim = new Date(dataFim).toISOString();
-      this.turmaService.criarTurma(dadosTurma).subscribe((res => {
+      this.turmaService.atualizarTurma(dadosTurma).subscribe((res => {
         this.turma = res;
         this.listarTurmaPorId(this.turma._id);
         console.log(this.turma);
@@ -95,7 +115,7 @@ export class CadastrarComponent implements OnInit {
   }
 
   validarTurma(turma:TurmaCreateInterface){
-    const isEmpty = Object.values(turma).some(x => (x === null || x === ''));
+    const isEmpty = Object.values(turma).some(x => (x === null));
     if (isEmpty){
       this.snackBar.open("Preencha todos os dados!", "Fechar", {
         verticalPosition: 'top'
@@ -109,28 +129,29 @@ export class CadastrarComponent implements OnInit {
     this.turmaService.listarTurmaPorId(_id).subscribe((res => {
       this.turma = res;
       this.listTurma = [ this.turma ];
-      this.novaTurma = false;
+      this.turmaEditada = false;
     }));
   }
 
   verTurma(value:string){
     localStorage.setItem('turma_id', value)
     this.router.navigate([{outlets: {turma: 'ver-turma'}}])
-  }
-
-  editarTurma(value:string){
-    localStorage.setItem('turma', value)
-    this.router.navigate([{outlets: {turma: 'editar-turma'}}])
+    console.log(value);
   }
 
   deletarTurma(){
     console.log(this.turma);
     this.turmaService.deletarTurma(this.turma._id).then((res => {
-      this.novaTurma = true;
+      this.turmaEditada = true;
     }));
   }
 
   openVerticallyCentered(content:any) {
     this.modalService.open(content, { centered: true});
+  }
+
+  transformDate(value:any){
+    let data = value.split('T')
+    return data[0];
   }
 }

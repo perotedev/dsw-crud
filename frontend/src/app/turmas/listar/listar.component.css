@@ -72,6 +72,7 @@ table {
 .action-buttons {
   color: #00914E;
   margin-right: 0.7rem;
+  width: max-content;
 }
 
 .pointer {

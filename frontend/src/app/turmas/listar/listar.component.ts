@@ -2,7 +2,7 @@ import { AlunoService } from './../../shared/services/aluno.service';
 import { TurmaInterface } from './../../shared/interfaces/turma.interface';
 import { TurmaService } from './../../shared/services/turma.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,7 +11,9 @@ import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ListarComponent implements OnInit {
   listTurmas: any;
-  turma: any;
+  turma: TurmaInterface;
+  nomeTurma:string="";
+  nomeCurso:string="";
   displayedColumns: string[] = ['id', 'name', 'course', 'startDate', 'endDate', 'actions'];
 
   constructor(
@@ -54,21 +56,27 @@ export class ListarComponent implements OnInit {
 
   verTurma(value:string){
     localStorage.setItem('turma_id', value)
-    console.log(value);
+    this.router.navigate([{outlets: {turma: 'ver-turma'}}])
   }
 
-  editarTurma(value:string){
-    console.log(value);
+  editarTurma(_id:string){
+    localStorage.setItem('turma', _id);
+    this.router.navigate([{outlets: {turma: 'editar-turma'}}]);
   }
 
   deletarTurma(){
     console.log(this.turma);
-    this.turmaService.deletarTurma(this.turma._id);
-    this.listarTurmas();
+    this.turmaService.deletarTurma(this.turma._id).then((res => {
+      const interval = setTimeout(() => {
+        this.listarTurmas();
+      }, 1000);
+    }));
   }
 
   openVerticallyCentered(content:any, element:TurmaInterface) {
     this.turma = element;
+    this.nomeTurma = element.nome;
+    this.nomeCurso = element.curso[0]['nome'];
     this.modalService.open(content, { centered: true});
   }
 }

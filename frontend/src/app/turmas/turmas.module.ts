@@ -7,6 +7,7 @@ import { TurmasRoutingModule } from './turmas.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TurmasComponent } from './turmas.component';
+import { EditarTurmaModule } from './editar-turma/editar-turma.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { TurmasComponent } from './turmas.component';
     CadastrarModule,
     ListarModule,
     VerTurmaModule,
+    EditarTurmaModule,
     MaterialAngular
   ],
   declarations: [TurmasComponent],

@@ -1,9 +1,9 @@
-import { PipesModule } from './../../shared/pipes/pipes.module';
 import { MaterialAngular } from './../../shared/style/material-angular.module';
 import { ListarRoutingModule } from './listar.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListarComponent } from './listar.component';
+import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 
 @NgModule({
   imports: [

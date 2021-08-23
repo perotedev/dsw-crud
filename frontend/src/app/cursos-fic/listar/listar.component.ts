@@ -1,9 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CursoFicInterface } from 'src/app/shared/interfaces/cursofic.interface';
 import { CursoFicService } from 'src/app/shared/services/cursofic.service';
 
+=======
+import { Observable } from 'rxjs';
+import { CursosFicService } from 'src/app/shared/services/cursofic.service';
+>>>>>>> 333524657a95b4fa4c707b4dc4cd1c02fa5f51f0
 
 @Component({
   templateUrl: './listar.component.html',
@@ -11,6 +16,7 @@ import { CursoFicService } from 'src/app/shared/services/cursofic.service';
 })
 export class ListarComponent implements OnInit, OnDestroy {
   listCursos: any;
+<<<<<<< HEAD
   curso: any;
   dataSource: string[] = ['id', 'name', 'numero_turmas'];
 
@@ -23,6 +29,17 @@ export class ListarComponent implements OnInit, OnDestroy {
     this.config.backdrop = 'static';
     this.config.keyboard = false;
   }
+=======
+  displayedColumns: string[] = ['id', 'name', 'numero_turmas'];
+  dataSource: string[] = ['id', 'name', 'numero_turmas'];
+  hiddenList = false;
+  hiddenCreate = true;
+
+  constructor(
+    private router: Router,
+    private cursoFicService: CursosFicService
+  ) { }
+>>>>>>> 333524657a95b4fa4c707b4dc4cd1c02fa5f51f0
 
   ngOnInit() {
     this.listCursos();

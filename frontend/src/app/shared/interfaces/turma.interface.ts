@@ -4,10 +4,27 @@ export interface TurmaInterface {
   nome:string,
   professorId:string,
   cursoId:string,
+  alunosId:string[],
+  dataInicio:string,
+  dataFim:string,
+  professor:any[],
+  curso:any[],
+  alunos:any[],
+}
+
+export interface TurmaCreateInterface {
+  nome:string,
+  professorId:string,
+  cursoId:string,
+  dataInicio:string,
+  dataFim:string,
+}
+
+export interface TurmaUpdateInterface {
+  nome:string,
+  professorId:string,
+  cursoId:string,
   alunosId:[],
-  dataInicio:Date,
-  dataFim:Date,
-  professor:[],
-  curso:[],
-  alunos:[],
+  dataInicio:string,
+  dataFim:string,
 }

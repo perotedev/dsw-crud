@@ -35,6 +35,27 @@ const alunos = [
       matricula: 2019099445,
       createdAt: "2021-06-29T00:04:01.665Z",
       updatedAt: "2021-06-29T00:04:01.665Z"
+  },
+  {
+      _id: "60d8ad29967c085268fb5220",
+      nome: 'Victoria Prado Barros',
+      matricula: 2017019405,
+      createdAt: "2021-06-29T00:04:01.665Z",
+      updatedAt: "2021-06-29T00:04:01.665Z"
+  },
+  {
+      _id: "60d8ad29967c085268fb5221",
+      nome: 'Paulo Ferreira Lima',
+      matricula: 2017015500,
+      createdAt: "2021-06-29T00:04:01.665Z",
+      updatedAt: "2021-06-29T00:04:01.665Z"
+  },
+  {
+      _id: "60d8ad29967c085268fb5222",
+      nome: 'Mayara Luisa de Lima',
+      matricula: 2015919503,
+      createdAt: "2021-06-29T00:04:01.665Z",
+      updatedAt: "2021-06-29T00:04:01.665Z"
   }
 ];
 
@@ -48,8 +69,10 @@ constructor() { }
   listarAlunosPorNome(termo:string){
     let todosAlunos = [];
     for (let i = 0; i < alunos.length; i++){
-      if(alunos[i].nome.toLowerCase().includes(termo) || alunos[i].nome.toUpperCase().includes(termo)){
+      if(alunos[i].nome.toLowerCase().includes(termo)){
          todosAlunos.push(alunos[i]);
+      } else if (alunos[i].nome.includes(termo) || alunos[i].matricula.toString().includes(termo)){
+        todosAlunos.push(alunos[i]);
       }
     }
     return todosAlunos;
