@@ -30,32 +30,4 @@ export class AlunoController {
     async deletarNome(@Body('_nome') _nome:string) {
         return this.alunoService.deletarAluno(_nome);
     }
-    @Get()
-    async listarMatricula(): Promise<Matricula[]>{
-        return this.alunoService.listarMatricula();
-    }
-
-    @Controller('matricula')
-
-    @Get(':_matricula')
-    async listarPorMatricula(@Param('_matricula') _matricula:long): Promise<Matricula>{
-        return this.alunoService.listarPorMatricula(_matricula);
-    }
-
-    @Post()
-    async criarMatricula(@Body() matricula:Matricula): Promise<Aluno>{
-        return this.alunoService.criarMatricula(matricula);
-    }
-
-    @Put()
-    async atualizarMatricula(@Body('_matricula') _matricula:long, @Body() matricula:Matricula): Promise<Matricula>{
-        return this.alunoService.atualizarAluno(aluno, _matricula);
-    }
-
-    @Delete()
-    async deletarMatricula(@Body('_matricula') _matricula:long) {
-        return this.alunoService.deletarMatricula(_matricula);
-    }
-
-    
 }

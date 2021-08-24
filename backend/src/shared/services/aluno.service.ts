@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Aluno } from '../schemas/Aluno.schema';
+import { Aluno } from '../schemas/aluno.schema';
 
 @Injectable()
 export class AlunoService {
@@ -29,22 +29,5 @@ export class AlunoService {
     }
     async listarMatricula(){
         return await this.alunoModel.find().exec();
-    }
-
-    async listarPorMatricula(_matricula:long){
-        return await this.alunoModel.findByMatricula(_matricula).exec();
-    }
-    async criarMatricula(aluno:Aluno){
-        const alunoCriado = new this.alunoModel(aluno);
-        return await alunoCriado.save();
-    }
-
-    async atualizarMatricula(aluno:Aluno, _matricula:long){
-        await this.alunoModel.updateOne({_matricula: _matricula}, aluno).exec();
-        return this.listarPorMatricula(_matricula);
-    }
-
-    async deletarMatricula(_matricula:long){
-        return await this.alunoModel.deleteOne({_matricula:_matricula}).exec();
     }
 }
