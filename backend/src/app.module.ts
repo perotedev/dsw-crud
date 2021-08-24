@@ -17,19 +17,19 @@ import { MongooseModule } from '@nestjs/mongoose';
     UsuarioModule,
     AlunoModule,
     // AMBIENTE PROD
-    // MongooseModule.forRoot('mongodb://database-crud:27027', {
-    //   dbName: "cruddb",
-    //   user: 'root',
-    //   pass: 'example',
-    //   authSource: "admin"
-    // })
-    // AMBIENTE DEV
-    MongooseModule.forRoot('mongodb://localhost:27027', {
+    MongooseModule.forRoot('mongodb://database-crud:27027', {
       dbName: "cruddb",
       user: 'root',
       pass: 'example',
       authSource: "admin"
     })
+    // AMBIENTE DEV
+    // MongooseModule.forRoot('mongodb://localhost:27027', {
+    //   dbName: "cruddb",
+    //   user: 'root',
+    //   pass: 'example',
+    //   authSource: "admin"
+    // })
   ],
   controllers: [AppController],
   providers: [AppService],
