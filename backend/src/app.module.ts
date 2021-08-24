@@ -1,3 +1,4 @@
+import { AlunoModule } from './modules/aluno.module';
 import { ProfessorModule } from './modules/professor.module';
 import { CursoFicModule } from './modules/cursoFic.module';
 import { TurmaModule } from './modules/turma.module';
@@ -14,6 +15,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     TurmaModule,
     CursoFicModule,
     UsuarioModule,
+    AlunoModule,
     // AMBIENTE PROD
     MongooseModule.forRoot('mongodb://database-crud:27027', {
       dbName: "cruddb",

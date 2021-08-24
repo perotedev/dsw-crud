@@ -10,7 +10,7 @@ const CURSO = ApiCursoFicRoutes;
 @Injectable({
     providedIn: 'root'
 })
-export class CursosFicService {
+export class CursoFicService {
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     };

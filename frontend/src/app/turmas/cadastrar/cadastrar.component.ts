@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/shared/services/turma.service';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
-import { CursosFicService } from 'src/app/shared/services/cursofic.service';
+import { CursoFicService } from 'src/app/shared/services/cursofic.service';
 import { ProfessorService } from 'src/app/shared/services/professor.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -29,7 +29,7 @@ export class CadastrarComponent implements OnInit {
 
   constructor(
     private turmaService: TurmaService,
-    private cursoService: CursosFicService,
+    private cursoService: CursoFicService,
     private professorService: ProfessorService,
     private snackBar: MatSnackBar,
     private modalService: NgbModal,

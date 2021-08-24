@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CursoFicService } from 'src/app/shared/services/cursofic.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+  curso: any;
 
-  constructor() { }
+  constructor (
+    private cursoFicService: CursoFicService
+    ) { 
+    }
 
   ngOnInit() {
+  }
+
+  cadastrarCursoFic(nome:string) {
+    const dadosCurso =  {
+      nome: nome
+    };
+    this.curso = dadosCurso;
+
+    this.cursoFicService.criarCurso(this.curso).subscribe((res => {
+      this.curso = res;
+      console.log(this.curso);
+    }));
   }
 
 }
