@@ -1,6 +1,7 @@
-FROM node:slim as build
+FROM node:16.10.0-buster-slim as build
 
 # RUN apk add --no-cache bash
+RUN npm install -g npm@6.14.11
 
 RUN npm i -g @nestjs/cli
 

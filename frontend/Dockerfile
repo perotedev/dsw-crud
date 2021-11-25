@@ -1,4 +1,4 @@
-FROM node:slim as build
+FROM node:14.15.5-buster-slim as build
 
 # RUN apk add --no-cache bash
 
