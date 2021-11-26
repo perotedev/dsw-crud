@@ -3,14 +3,9 @@
 name: CI
 
 # Controls when the workflow will run
-on:  
-  push:
+on:
   pull_request:
-    branches:
-      - develop
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [develop, master]
 
 jobs:
   test:
