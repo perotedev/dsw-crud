@@ -16,11 +16,10 @@ jobs:
       with:
         node-version: 12.*
 
-    - name: lint front-end
+    - name: build test frontend
       run: |
         cd frontend/
         npm install
-        npm run format
         npm run build
         
     - name: build test backend
