@@ -1,19 +1,27 @@
-# Name of the workflow
-name: Release
+name: CI
 
-# Run on every commit tag which begins with "v" (e.g., "v0.1.4")
+# Controls when the workflow will run
 on:
-  push:
-    tags:
-      - "v*"
+  pull_request:
+    branches: develop
 
-# Automatically create a GitHub Release, with release details specified (the relevant commits)
 jobs:
-  release:
-    name: "Release"
-    runs-on: "ubuntu-latest"
+  test:
+    name: test and lint 
+    runs-on: ubuntu-latest
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
+    - uses: actions/checkout@v2
+      with:
+        node-version: 12.*
+
+    - name: build test frontend
+      run: |
+        cd frontend/
+        npm install
+        npm run build
+        
+    - name: build test backend
+      run: |
+        cd backend/
+        npm install
+        npm run build 
